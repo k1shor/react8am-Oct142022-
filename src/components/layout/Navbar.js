@@ -7,7 +7,7 @@ const Navbar = () => {
             <div className='container-fluid'>
                 <div className='row custom-background'>
                     <div className='col-md-3 text-center'>
-                        <Link className="navbar-brand fs-3 fw-bold text-warning" to="#">Navbar</Link>
+                        <Link className="navbar-brand fs-3 fw-bold text-warning" to="/">Our Store</Link>
                     </div>
                     <div className='col-md-6 pt-2'>
                         <form className="d-flex" role="search">
@@ -16,9 +16,9 @@ const Navbar = () => {
                         </form>
                     </div>
                     <div className='col-md-3 p-1 d-flex justify-content-evenly'>
-                        <Link to="#"><i className="bi bi-box-arrow-in-right fs-3 text-success"></i></Link>
-                        <Link to="#"><i className="bi bi-person-plus fs-3 text-success"></i></Link>
-                        <Link to="#"><i className="bi bi-cart fs-3 text-success"></i></Link>
+                        <Link to="/login"><i className="bi bi-box-arrow-in-right fs-3 text-success"></i></Link>
+                        <Link to="/register"><i className="bi bi-person-plus fs-3 text-success"></i></Link>
+                        <Link to="/cart"><i className="bi bi-cart fs-3 text-success"></i></Link>
                     </div>
                 </div>
             </div>
@@ -30,18 +30,20 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="#">Home</Link>
+                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="#">Products</Link>
+                                <Link className="nav-link" to="/products">Products</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="#">About Us</Link>
+                                <Link className="nav-link" to="/about">About Us</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="#">Contact</Link>
+                                <Link className="nav-link" to="/contact">Contact</Link>
                             </li>
-                            
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/faq">FAQ</Link>
+                            </li>
                         </ul>
 
                     </div>
