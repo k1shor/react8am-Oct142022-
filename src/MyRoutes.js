@@ -15,6 +15,7 @@ import Login from './components/pages/Login'
 import Products from './components/pages/Products'
 import Register from './components/pages/Register'
 import Counter2 from './components/redux-example/Counter2'
+import Games from './components/redux-example/Games'
 import First from './First'
 import Second from './Second'
 
@@ -47,6 +48,7 @@ const MyRoutes = () => {
 
             {/* Redux Example */}
             <Route path='/count' element={<Counter2/>}/>
+            <Route path='/game' element = {<Games/>}/>
         </Routes>
     </BrowserRouter>
   )

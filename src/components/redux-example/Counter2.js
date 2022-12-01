@@ -2,10 +2,10 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Counter2 = () => {
-    let counterStore = useSelector(store => store)
+    let counterStore = useSelector(store => store.counter)
     let count = counterStore.count
 
-    // let count = useSelector(store=>store.count)
+    // let count = useSelector(store=>store.counter.count)
 
     let dispatch = useDispatch()
 
