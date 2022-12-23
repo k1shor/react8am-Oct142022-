@@ -1,7 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { isAuthenticated, signOut } from '../../api/userApi'
 
 const Navbar = () => {
+    let { user } = isAuthenticated()
+    // let userInfo = isAuthenticated()
+    // let user = userInfo.user
+    // let token = userInfo.token
+    let navigate = useNavigate()
+
+    const handleSignout = () => {
+        signOut()
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                }
+                else {
+                    navigate('/login')
+                }
+            })
+    }
     return (
         <>
             <div className='container-fluid'>
@@ -16,9 +34,27 @@ const Navbar = () => {
                         </form>
                     </div>
                     <div className='col-md-3 p-1 d-flex justify-content-evenly'>
-                        <Link to="/login"><i className="bi bi-box-arrow-in-right fs-3 text-success"></i></Link>
-                        <Link to="/register"><i className="bi bi-person-plus fs-3 text-success"></i></Link>
-                        <Link to="/cart"><i className="bi bi-cart fs-3 text-success"></i></Link>
+                        {!user &&
+                            <>
+                                <Link to="/login"><i className="bi bi-box-arrow-in-right fs-3 text-success"></i></Link>
+                                <Link to="/register"><i className="bi bi-person-plus fs-3 text-success"></i></Link>
+                            </>
+                        }
+
+                        {user && user.role === 1 &&
+                            <Link to="/admin/dashboard"><i className="bi bi-speedometer fs-3 text-success"></i></Link>
+                        }
+                        {user && user.role === 0 &&
+                            <>
+                                <Link to="/userprofile"><i className="bi bi-person-circle fs-3 text-success"></i></Link>
+                                <Link to="/cart"><i className="bi bi-cart fs-3 text-success"></i></Link>
+                            </>
+                        }
+
+                        {user &&
+                            <i className="bi bi-box-arrow-right fs-3 text-success" onClick={handleSignout} role="button"></i>
+                        }
+
                     </div>
                 </div>
             </div>
