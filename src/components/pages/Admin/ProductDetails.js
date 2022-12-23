@@ -74,6 +74,7 @@ const ProductDetails = () => {
         e.preventDefault()
         console.log("abc")
         dispatch(addItemToCart(id, 1))
+        Swal.fire("Added to Cart")
     }
 
     return (
